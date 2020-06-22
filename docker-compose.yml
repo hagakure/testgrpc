@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+    grpc-server:
+        container_name: "grpc-server"
+        build: .\Server
+        environment:
+            - GRPC_SERVER_PORT=8081
+        ports:
+            - "8081:8081"
+    grpc-client:
+        container_name: "grpc-client"
+        build: .\Client
+        environment:
+            - GRPC_SERVER_ADDRESS=host.docker.internal
+            - GRPC_SERVER_PORT=8081
+        ports:
+            - "8080:8080"

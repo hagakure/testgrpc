@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_package="com.grpc.test";
+
+message HelloRequest {
+  string firstName = 1;
+}
+
+
+message HelloResponse {
+  string greeting = 1;
+}
+
+message CheckRequest {
+}
+
+message CheckResponse {
+    string response = 1;
+}
+service HelloService {
+  rpc hello(HelloRequest) returns (HelloResponse);
+  rpc Check(CheckRequest) returns (CheckResponse);
+}
